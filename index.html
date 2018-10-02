@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Calc-You-Later!</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+  </head>
+  <body>
+    <form class="calculator" name="Calc">
+
+      <!-- Monitor -->
+      <img id="monitor" src="images/monitor.png" alt="">
+      <input id="output" type="text" name="output" value="">
+
+      <!-- Controller Container -->
+      <div class="controller">
+
+        <!-- Trigger buttons -->
+        <div class="topbtns">
+          <input class="lefttrigger" name="average" type="button" value="AVG" onclick="numbers = Calc.output.value; numarray = numbers.split('+'); Calc.output.value = averageFunc(numarray);"></input>
+          <input class="righttrigger" name="clear" type="button" value="A/C" onclick="Calc.output.value =''"></input>
+        </div>
+
+        <!-- Container for main buttons -->
+        <div class="center">
+
+          <!-- Dpad buttons -->
+          <div id="dpad">
+            <div id="vertical">
+              <input name="multiply" type="button" value="x" onclick="Calc.output.value += '*'"></input>
+              <input name="modulo" type="button" value="%" onclick="Calc.output.value += '%'"></input>
+              <input name="divide" type="button" value="/" onclick="Calc.output.value += '/'"></input>
+            </div>
+            <div id="horizontal">
+              <input name="subtract" type="button" value="-" onclick="Calc.output.value += '-'"></input>
+              <input name="add" type="button" value="+" onclick="Calc.output.value += '+'; numbers = Calc.output.value;"></input>
+            </div>
+          </div>
+
+          <!-- Center buttons -->
+          <div class="centerbtns">
+            <input class="middlenums" name="zero" type="button" value="0" onclick="Calc.output.value += '0'"></input>
+            <input id="equals" name="equals" type="button" value="=" onclick="Calc.output.value = eval(Calc.output.value)" ></input>
+            <input class="middlenums" name="one" type="button" value="1" onclick="Calc.output.value += '1'"></input>
+          </div>
+
+          <!-- Right buttons -->
+          <div class="rightbtns">
+            <div class="toprow">
+              <input class="rightnums" name="two" type="button" value="2" onclick="Calc.output.value += '2'"></input>
+              <input class="rightnums" name="three" type="button" value="3" onclick="Calc.output.value += '3'"></input>
+              <input class="rightnums" name="four" type="button" value="4" onclick="Calc.output.value += '4'"></input>
+              <input class="rightnums" name="five" type="button" value="5" onclick="Calc.output.value += '5'"></input>
+            </div>
+            <div class="bottomrow">
+              <input class="rightnums" name="six" type="button" value="6" onclick="Calc.output.value += '6'"></input>
+              <input class="rightnums" name="seven" type="button" value="7" onclick="Calc.output.value += '7'"></input>
+              <input class="rightnums" name="eight" type="button" value="8" onclick="Calc.output.value += '8'"></input>
+              <input class="rightnums" name="nine" type="button" value="9" onclick="Calc.output.value += '9'"></input>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+
+
+    <script type="text/javascript">
+      var numbers = "";
+      var numarray = [];
+      var avg;
+
+      function averageFunc(array) {
+        avg = 0;
+        for (let i = 0; i < array.length; i++) {
+          avg += Number(array[i]);
+        }
+        avg = avg / array.length;
+        numbers = "";
+        numarray = [];
+        return avg;
+      }
+    </script>
+  </body>
+</html>
